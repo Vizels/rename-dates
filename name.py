@@ -38,6 +38,12 @@ class FileName:
         for i in range(len(parts)):
             self.base[self.init_format[i]] = parts[i]
         return self.base
+    
+    def is_base_digital(self):
+        for key in self.base:
+            if not str(self.base[key]).isdigit():
+                return False
+        return True
 
     def rename_file(self, new_format=["YYYY", "MM", "DD"], new_delimiter="-"):
         """
